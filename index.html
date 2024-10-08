@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="navegador.png" type="image/jpeg">
+    <title>Portfólio</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Dev-Edward</a>
+
+        <nav>
+            <a href="#home" class="active">Início</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#habilidades">Habilidades</a>
+            <a href="#educacao">Educação</a>
+            <a href="#experiencia">Experiência</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+    
+    <section id="home" class="home">
+        <div class="home-img">
+            <img src="main.jpg" alt="Foto de Dev-Edward">
+        </div>
+        <div class="home-content">
+            <h1>Olá, eu sou <span>Dev-Edward</span></h1>
+            <h3 class="typing-text">Eu sou um <span></span></h3>
+            <p>Desenvolvedor full-stack júnior entusiasmado em aprender e crescer</p>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/Wendygo77" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/eduard_americo/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <a href="#contato" class="btn">Contate-me</a>
+        </div>
+    </section>
+
+    <section id="servicos">
+        <h2>Meus Serviços</h2>
+        <div class="section-content">
+            <div class="service-item">
+                <i class="fas fa-code"></i>
+                <h3>Desenvolvimento Front-end</h3>
+                <p>Criação de interfaces responsivas e interativas usando HTML, CSS e JavaScript.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-server"></i>
+                <h3>Desenvolvimento Back-end</h3>
+                <p>Implementação de lógica de servidor e APIs usando Node.js e Express.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-database"></i>
+                <h3>Banco de Dados</h3>
+                <p>Modelagem e gerenciamento de bancos de dados SQL e NoSQL.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="habilidades">
+        <h2>Minhas Habilidades</h2>
+        <div class="section-content">
+            <div class="skill-item">
+                <h3>JavaScript</h3>
+                <p>Experiência em desenvolvimento front-end e back-end com JavaScript.</p>
+            </div>
+            <div class="skill-item">
+                <h3>HTML</h3>
+                <p>Criação de estruturas semânticas e acessíveis para páginas web.</p>
+            </div>
+            <div class="skill-item">
+                <h3>CSS</h3>
+                <p>Estilização avançada e layouts responsivos com CSS moderno.</p>
+            </div>
+            <div class="skill-item">
+                <h3>Python</h3>
+                <p>Desenvolvimento de scripts e aplicações utilizando Python.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="educacao">
+        <h2>Minha Educação</h2>
+        <div class="section-content">
+            <div class="education-item">
+                <h3>Curso Técnico de informática</h3>
+                <p>alura, 2021-2023</p>
+            </div>
+            <div class="education-item">
+                <h3>Bootcamp Full Stack Web Development</h3>
+                <p>Escola de Programação alura, 2024</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiencia">
+        <h2>Minha Experiência</h2>
+        <div class="section-content">
+            <div class="experience-item">
+                <h3>Desenvolvedor Full Stack</h3>
+                <p>Autônomo</p>
+                <ul>
+                    <li>Desenvolvimento de componentes React para o front-end</li>
+                    <li>Implementação de rotas e controladores no back-end com Node.js</li>
+                    <li>Integração com banco de dados MongoDB</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Auxiliar em um projeto full-stack</h3>
+                <p>Empresa privada</p>
+                <ul>
+                    <li>Criação de landing pages responsivas</li>
+                    <li>Colaboração em um projeto de vendas de relatórios de carros usados.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Projetos no GitHub</h3>
+                <p><a href="https://github.com/Wendygo77" target="_blank">github.com/Wendygo77</a></p>
+                <ul id="github-projects">
+                    <!-- Os projetos do GitHub serão carregados aqui dinamicamente -->
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Entre em Contato</h2>
+        <div class="section-content">
+            <form id="formularioContato">
+                <input type="text" id="nome" placeholder="Seu Nome" required>
+                <input type="email" id="email" placeholder="Seu Email" required>
+                <textarea id="mensagem" placeholder="Sua Mensagem" required></textarea>
+                <button type="submit" class="btn">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="envia_email.js"></script>
+    <script>
+        // Função para carregar o projeto específico do GitHub
+        function carregarProjetoGitHub() {
+            fetch('https://api.github.com/repos/Wendygo77/ProjetofaceGP')
+                .then(response => response.json())
+                .then(data => {
+                    const listaProjetosGitHub = document.getElementById('github-projects');
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="${data.html_url}" target="_blank">${data.name}</a>: ${data.description || 'Sem descrição'}`;
+                    listaProjetosGitHub.appendChild(li);
+                })
+                .catch(error => console.error('Erro ao carregar o projeto do GitHub:', error));
+        }
+
+        // Chamar a função quando a página carregar
+        window.onload = carregarProjetoGitHub;
+    </script>
+</body>
+</html>
